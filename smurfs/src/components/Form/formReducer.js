@@ -3,10 +3,10 @@ import {INPUT_CHANGE, FORM_SUBMIT} from './formActionTypes';
 export const initialForm = {
     name:"",
     age:0,
-    height:0
+    height:"0"
 };
 
-export function formReducer(form = initialForm, action){
+export function formReducer(form, action){
     switch (action.type) {
         case INPUT_CHANGE:
             return {
