@@ -3,16 +3,16 @@ import { initialForm, formReducer, inputChange, formSubmit } from "./formReducer
 import { connect } from "react-redux";
 import { submitSmurf, editSmurf } from "../../state/actionCreators";
 
-export function Form({ submitSmurf, editSmurf, smurfID, initialValues = initialForm }) {
+export function Form({ submitSmurf, editSmurf, smurfID, setEdit, initialValues = initialForm }) {
   const [form, dispatch] = useReducer(formReducer, initialValues);
   const onInput = event => {
     dispatch(inputChange(event.target.name, event.target.value));
   };
   const onSubmit = event => {
-    debugger;
     event.preventDefault();
     if(smurfID!==undefined){
       editSmurf({...form, id:smurfID});
+      setEdit(false)
     }else{
       submitSmurf(form);
       dispatch(formSubmit());
@@ -44,7 +44,7 @@ export function Form({ submitSmurf, editSmurf, smurfID, initialValues = initialF
           min={0}
         />
       </label>
-      <input type="submit" />
+      <button type="submit" >Submit</button>
     </form>
   );
 }

@@ -7,7 +7,6 @@ export function SmurfList({ smurfs, getSmurfs, deleteSmurf, editSmurf }) {
     useEffect(()=>{
         getSmurfs();
     }, [getSmurfs]);
-    debugger;
   return (
     <div className="smurf-list">
       {smurfs.map(smurf => (

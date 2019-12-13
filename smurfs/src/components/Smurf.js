@@ -10,7 +10,7 @@ export default function Smurf({ smurf , deleteSmurf}) {
       </p>
       <button type = "button"onClick={event=>setEdit(!edit)}>Edit Smurf</button>
       <button type = "button" onClick = {event=>deleteSmurf(smurf.id)}>Delete Smurf</button>
-      {edit && <Form initialValues = {smurf} smurfID = {smurf.id}/>}
+      {edit && <Form initialValues = {smurf} smurfID = {smurf.id} setEdit={setEdit}/>}
     </div>
   );
 }
